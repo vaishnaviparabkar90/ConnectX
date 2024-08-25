@@ -38,7 +38,7 @@ ConnectX is a real-time chat application built using the MERN (MongoDB, Express.
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/ConnectX.git
+   git clone https://github.com/vaishnaviparabkar90/ConnectX.git
    cd ConnectX
 1. **Backend Setup:**
 
