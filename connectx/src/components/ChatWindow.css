@@ -1,0 +1,31 @@
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.message-sent {
+  text-align: right;
+}
+
+.message-received {
+  text-align: left;
+}
+
+.message-content {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  max-width: 75%;
+}
