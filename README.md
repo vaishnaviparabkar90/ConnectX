@@ -1,13 +1,6 @@
 # ConnectX
 ConnectX is a real-time chat application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. This application supports features such as JWT Based user authentication, private messaging.
 
-## Features
-
-- **User Authentication:** Secure login and registration with JWT-based authentication.
-- **Private Messaging:** Users can send messages to each other privately.
-- **Typing Indicators:** See when someone is typing in a chat.
-- **Notifications:** Receive notifications for new messages
-
 ## Technologies Used
 
 - **Frontend:**
