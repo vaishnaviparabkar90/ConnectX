@@ -1,6 +1,6 @@
 // redux/reducers/userReducer.js
 
-import { LOGIN_SUCCESS, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE} from '../actions/userActions';
+import { LOGIN_SUCCESS, FETCH_USERS_REQUEST,FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE} from '../actions/userActions';
 
 const initialState = {
     userId: null,
@@ -24,12 +24,11 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
             };
-        case FETCH_USERS_SUCCESS:
+            case FETCH_USERS_SUCCESS:
             return {
                 ...state,
-                users: action.payload,
-                loading: false,
-            };
+                users: action.payload
+              };
         case FETCH_USERS_FAILURE:
             return {
                 ...state,

@@ -12,27 +12,25 @@ export const loginSuccess = (userData) => ({
     payload: userData,
 });
 
-export const fetchUsers = () => async (dispatch) => {
-    dispatch({ type: FETCH_USERS_REQUEST });
+export const fetchUsers = () => async dispatch => {
     try {
-        const response = await axios.get('/api/users');
-        dispatch({ type: FETCH_USERS_SUCCESS, payload: response.data });
+      const response = await fetch('/api/users');
+      const data = await response.json();
+      dispatch({ type: 'FETCH_USERS_SUCCESS', payload: data });
     } catch (error) {
-        console.error('Error fetching users:', error);
-        dispatch({ type: FETCH_USERS_FAILURE, payload: error.message });
+      console.error('Error fetching users:', error);
     }
-};
-
-// Thunk for login
+  };
+  
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         const response = await axios.post('/api/auth/login', { email, password });
+        const user = response.data;
         const { token, userId } = response.data;
-
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
-
-        dispatch(loginSuccess({ userId, token }));
+        dispatch({ type: LOGIN_SUCCESS, payload: user });
+        return user; // Return the user object
     } catch (error) {
         console.error('Login failed:', error);
     }

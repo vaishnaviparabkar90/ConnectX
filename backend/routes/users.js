@@ -1,15 +1,15 @@
+// src/routes/users.js
 const express = require('express');
+const router = express.Router();
 const User = require('../models/User');
 
-const router = express.Router();
-
-// Fetch all users
+// Route to get all users
 router.get('/', async (req, res) => {
     try {
-        const users = await User.find({}, { password: 0 }); // Exclude password field
+        const users = await User.find();
         res.json(users);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ message: err.message });
     }
 });
 

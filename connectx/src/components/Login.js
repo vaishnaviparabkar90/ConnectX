@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../redux/actions/userActions';
 import { useNavigate } from 'react-router-dom';
-
+import socket from './socket'; // Import the socket instance
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -14,7 +14,10 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await dispatch(loginUser(email, password));
+            const user = await dispatch(loginUser(email, password));
+            if (user && user._id) {
+                socket.emit('login', user._id); // Emit the login event with userId
+            }
             navigate('/'); // Redirect to the main page
         } catch (error) {
             setError('Login failed. Please check your credentials.');

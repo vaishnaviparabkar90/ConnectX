@@ -12,6 +12,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ChatApp from './components/ChatApp'; // Ensure this path is correct
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Create Redux store with middleware
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -26,15 +27,16 @@ const App = () => {
         // Provider should wrap the Router and all components within
         <Provider store={store}>
             <Router>
-                <AppNavbar />
-                <div className="container mt-4">
-                    <Routes>
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/login" element={<Login />} />
-                        {/* PrivateRoute needs to be used correctly */}
-                        <Route path="/" element={<PrivateRoute element={ChatApp} />} />
-                    </Routes>
-                </div>
+            <ErrorBoundary>
+                    <AppNavbar />
+                    <div className="container mt-4">
+                        <Routes>
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/" element={<PrivateRoute element={ChatApp} />} />
+                        </Routes>
+                    </div>
+                </ErrorBoundary>
             </Router>
         </Provider>
     );

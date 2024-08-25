@@ -6,7 +6,7 @@ const userSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    socketId: { type: String } // For storing socket ID
+    socketId: String // For storing socket ID
 });
 
 // Pre-save hook to hash password

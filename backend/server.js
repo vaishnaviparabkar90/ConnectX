@@ -24,6 +24,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes); // Add route for messages
 app.use('/api/users', userRoutes); 
+
 io.on('connection', (socket) => {
     console.log(`User connected: ${socket.id}`);
 
@@ -41,6 +42,7 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', async (message) => {
         const newMessage = new Message(message);
         await newMessage.save();
+
         io.to(message.receiver).emit('receiveMessage', message);
         io.to(message.sender).emit('receiveMessage', message);
     });
