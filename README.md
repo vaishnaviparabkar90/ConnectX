@@ -40,41 +40,47 @@ ConnectX is a real-time chat application built using the MERN (MongoDB, Express.
    ```bash
    git clone https://github.com/yourusername/ConnectX.git
    cd ConnectX
-2. **Backend Setup:**
+1. **Backend Setup:**
 
-Navigate to the backend directory:
-cd backend
+   - Navigate to the backend directory:
+     ```bash
+     cd backend
+     ```
 
-Install backend dependencies:
+   - Install backend dependencies:
+     ```bash
+     npm install
+     ```
 
-npm install
+   - Set up environment variables in a `.env` file:
+     ```env
+     MONGO_URI=your_mongo_db_connection_string
+     JWT_SECRET=your_jwt_secret
+     SOCKET_PORT=your_socket_port
+     ```
 
-Set up environment variables in a .env file:
+   - Start the backend server:
+     ```bash
+     npm start
+     ```
 
-MONGO_URI=your_mongo_db_connection_string
-JWT_SECRET=your_jwt_secret
-SOCKET_PORT=your_socket_port
+2. **Frontend Setup:**
 
-Start the backend server:
+   - Navigate to the `connectx` (frontend) directory:
+     ```bash
+     cd ../connectx
+     ```
 
-npm start
+   - Install frontend dependencies:
+     ```bash
+     npm install
+     ```
 
-Frontend Setup:
+   - Start the React development server:
+     ```bash
+     npm start
+     ```
 
-3.**Frontend Setup:**
+3. **Access the Application:**
 
-Navigate to the connectx (frontend) directory:
-
-cd ../connectx
-
-Install frontend dependencies:
-
-npm install
-
-Start the React development server:
-
-npm start
-
-4.**Access the Application:**
-
-Open your browser and go to http://localhost:3000.
+   - Open your browser and go to `http://localhost:3000`.
